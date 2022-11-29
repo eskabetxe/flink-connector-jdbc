@@ -64,7 +64,7 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                             + "varchar2_col VARCHAR(30),"
                             + "date_col DATE,"
                             + "timestamp6_col TIMESTAMP(6),"
-                            + "timestamp9_col TIMESTAMP(9)"
+                            + "timestamp9_col TIMESTAMP(6)"
                             + ")");
             statement.executeUpdate(
                     "INSERT INTO "
@@ -77,7 +77,7 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                             + "'abcdef', "
                             + "TO_DATE('1997-01-01','yyyy-mm-dd'), "
                             + "TIMESTAMP '2020-01-01 15:35:00.123456', "
-                            + "TIMESTAMP '2020-01-01 15:35:00.123456789' "
+                            + "TIMESTAMP '2020-01-01 15:35:00.123456' "
                             + ")");
             statement.executeUpdate(
                     "INSERT INTO "
@@ -90,8 +90,11 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                             + "'abcdef', "
                             + "TO_DATE('1997-01-02','yyyy-mm-dd'), "
                             + "TIMESTAMP '2020-01-01 15:36:01.123456', "
-                            + "TIMESTAMP '2020-01-01 15:36:01.123456789' "
+                            + "TIMESTAMP '2020-01-01 15:36:01.123456' "
                             + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -154,7 +157,7 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                                         + "abcdef, "
                                         + "1997-01-01, "
                                         + "2020-01-01T15:35:00.123456, "
-                                        + "2020-01-01T15:35:00.123456789"
+                                        + "2020-01-01T15:35:00.123456"
                                         + "]",
                                 "+I[2, "
                                         + "2.1234567879, "
@@ -163,7 +166,7 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                                         + "abcdef, "
                                         + "1997-01-02, "
                                         + "2020-01-01T15:36:01.123456, "
-                                        + "2020-01-01T15:36:01.123456789"
+                                        + "2020-01-01T15:36:01.123456"
                                         + "]")
                         .sorted()
                         .collect(Collectors.toList());
@@ -257,8 +260,8 @@ public class TrinoTableSourceITCase extends TrinoTestBase {
                         .collect(Collectors.toList());
 
         Set<String> expected = new HashSet<>();
-        expected.add("+I[1, 2020-01-01T15:35:00.123456, 2020-01-01T15:35:00.123456789, 100.1234]");
-        expected.add("+I[2, 2020-01-01T15:36:01.123456, 2020-01-01T15:36:01.123456789, 101.1234]");
+        expected.add("+I[1, 2020-01-01T15:35:00.123456, 2020-01-01T15:35:00.123456, 100.1234]");
+        expected.add("+I[2, 2020-01-01T15:36:01.123456, 2020-01-01T15:36:01.123456, 101.1234]");
         assertThat(result).hasSize(1);
         assertThat(expected)
                 .as("The actual output is not a subset of the expected set.")

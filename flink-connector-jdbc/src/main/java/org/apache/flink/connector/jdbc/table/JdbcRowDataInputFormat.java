@@ -110,6 +110,7 @@ public class JdbcRowDataInputFormat extends RichInputFormat<RowData, InputSplit>
             if (autoCommit != null) {
                 dbConn.setAutoCommit(autoCommit);
             }
+
             statement = dbConn.prepareStatement(queryTemplate, resultSetType, resultSetConcurrency);
             if (fetchSize == Integer.MIN_VALUE || fetchSize > 0) {
                 statement.setFetchSize(fetchSize);

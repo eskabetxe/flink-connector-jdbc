@@ -199,7 +199,7 @@ public class TrinoTableSinkITCase extends TrinoTestBase {
         check(new Row[] {Row.of(1.1f)}, "REAL_TABLE", new String[] {"real_data"});
     }
 
-    @Disabled("Trino memory connector dont allow deletes")
+//    @Disabled("Trino memory connector dont allow deletes")
     @Test
     public void testUpsert() throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -365,7 +365,7 @@ public class TrinoTableSinkITCase extends TrinoTestBase {
                 new String[] {"NAME", "SCORE"});
     }
 
-    @Disabled("Trino memory connector dont allow updates")
+//    @Disabled("Trino memory connector dont allow updates")
     @Test
     public void testReadingFromChangelogSource() throws Exception {
         TableEnvironment tEnv = TableEnvironment.create(EnvironmentSettings.newInstance().build());
