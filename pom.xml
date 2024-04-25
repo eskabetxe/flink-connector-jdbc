@@ -45,10 +45,16 @@ under the License.
     <modules>
         <module>flink-connector-jdbc</module>
         <module>flink-connector-jdbc-core</module>
+        <module>flink-connector-jdbc-oracle</module>
+        <module>flink-connector-jdbc-oceanbase</module>
+        <module>flink-connector-jdbc-trino</module>
+        <module>flink-connector-jdbc-db2</module>
+        <module>flink-connector-jdbc-sqlserver</module>
     </modules>
 
     <properties>
         <flink.version>1.18.0</flink.version>
+        <scala.binary.version>2.12</scala.binary.version>
 
         <jackson-bom.version>2.13.4.20221013</jackson-bom.version>
         <junit4.version>4.13.2</junit4.version>
