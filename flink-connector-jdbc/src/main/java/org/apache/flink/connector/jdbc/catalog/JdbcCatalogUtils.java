@@ -32,7 +32,11 @@ import java.util.Properties;
 import static org.apache.flink.connector.jdbc.JdbcConnectionOptions.getBriefAuthProperties;
 import static org.apache.flink.util.Preconditions.checkArgument;
 
-/** Utils for {@link JdbcCatalog}. */
+/**
+ * Utils for {@link JdbcCatalog}.
+ * @deprecated
+ **/
+@Deprecated
 public class JdbcCatalogUtils {
     /**
      * URL has to be without database, like "jdbc:postgresql://localhost:5432/" or
@@ -75,18 +79,21 @@ public class JdbcCatalogUtils {
         JdbcDialect dialect =
                 JdbcFactoryLoader.loadDialect(baseUrl, userClassLoader, compatibleMode);
 
+        org.apache.flink.connector.jdbc.core.table.catalog.AbstractJdbcCatalog catalog;
         if (dialect instanceof PostgresDialect) {
-            return new PostgresCatalog(
+            catalog = new PostgresCatalog(
                     userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
         } else if (dialect instanceof CrateDBDialect) {
-            return new CrateDBCatalog(
+            catalog = new CrateDBCatalog(
                     userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
         } else if (dialect instanceof MySqlDialect) {
-            return new MySqlCatalog(
+            catalog = new MySqlCatalog(
                     userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
         } else {
             throw new UnsupportedOperationException(
                     String.format("Catalog for '%s' is not supported yet.", dialect));
         }
+
+        return (AbstractJdbcCatalog) catalog;
     }
 }

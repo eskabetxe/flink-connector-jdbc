@@ -13,5 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-org.apache.flink.connector.jdbc.table.JdbcDynamicTableFactory
-org.apache.flink.connector.jdbc.core.table.catalog.factory.JdbcCatalogFactory
+org.apache.flink.connector.jdbc.databases.mysql.dialect.MySqlFactory
+org.apache.flink.connector.jdbc.databases.postgres.dialect.PostgresFactory
+org.apache.flink.connector.jdbc.databases.cratedb.dialect.CrateDBFactory
