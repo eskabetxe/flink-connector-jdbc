@@ -37,7 +37,13 @@ public class SqlServerFactory implements JdbcFactory {
     }
 
     @Override
-    public JdbcCatalog createCatalog(ClassLoader classLoader, String catalogName, String defaultDatabase, String username, String pwd, String baseUrl) {
+    public JdbcCatalog createCatalog(
+            ClassLoader classLoader,
+            String catalogName,
+            String defaultDatabase,
+            String username,
+            String pwd,
+            String baseUrl) {
         throw new UnsupportedOperationException("Catalog for SqlServer is not supported yet.");
     }
 }

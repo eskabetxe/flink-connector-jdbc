@@ -44,7 +44,17 @@ under the License.
 
 		<dependency>
 			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-jdbc-cratedb</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-connector-jdbc-db2</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-jdbc-mysql</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -55,6 +65,11 @@ under the License.
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-connector-jdbc-oracle</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-jdbc-postgres</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -101,12 +116,19 @@ under the License.
 							<createDependencyReducedPom>false</createDependencyReducedPom>
 							<shadeTestJar>true</shadeTestJar>
 							<artifactSet>
+								<includes>
+									<include>org.apache.flink:flink-connector-jdbc-core</include>
+									<include>org.apache.flink:flink-connector-jdbc-cratedb</include>
+									<include>org.apache.flink:flink-connector-jdbc-db2</include>
+									<include>org.apache.flink:flink-connector-jdbc-mysql</include>
+									<include>org.apache.flink:flink-connector-jdbc-oceanbase</include>
+									<include>org.apache.flink:flink-connector-jdbc-oracle</include>
+									<include>org.apache.flink:flink-connector-jdbc-postgres</include>
+									<include>org.apache.flink:flink-connector-jdbc-sqlserver</include>
+									<include>org.apache.flink:flink-connector-jdbc-trino</include>
+								</includes>
 								<excludes>
-									<exclude>org.apache.flink:flink-annotations</exclude>
-									<exclude>org.apache.flink:flink-core</exclude>
-									<exclude>org.apache.flink:flink-connector-base</exclude>
-									<exclude>org.apache.flink:flink-table-common</exclude>
-									<exclude>org.apache.flink:flink-connector-jdbc-core:tests</exclude>
+									<exclude>org.apache.flink:*:tests</exclude>
 								</excludes>
 							</artifactSet>
 							<filters combine.children="append">

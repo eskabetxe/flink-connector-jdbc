@@ -48,8 +48,8 @@ public class JdbcCatalogUtils {
         checkArgument(parts.length == 2);
     }
 
-    @Deprecated
     /** Create catalog instance from given information. */
+    @Deprecated
     public static AbstractJdbcCatalog createCatalog(
             ClassLoader userClassLoader,
             String catalogName,

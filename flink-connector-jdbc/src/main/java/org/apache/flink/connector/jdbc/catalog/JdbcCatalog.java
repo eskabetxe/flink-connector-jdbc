@@ -46,13 +46,13 @@ public class JdbcCatalog
 
     private final org.apache.flink.connector.jdbc.core.table.catalog.AbstractJdbcCatalog internal;
 
-    @Deprecated
     /**
      * Creates a JdbcCatalog.
      *
      * @deprecated please use {@link JdbcCatalog#JdbcCatalog(ClassLoader, String, String, String,
      *     String, Properties)} instead.
      */
+    @Deprecated
     public JdbcCatalog(
             String catalogName,
             String defaultDatabase,
@@ -68,7 +68,7 @@ public class JdbcCatalog
                 getBriefAuthProperties(username, pwd));
     }
 
-    @VisibleForTesting
+
     /**
      * Creates a JdbcCatalog.
      *
@@ -80,6 +80,7 @@ public class JdbcCatalog
      * @param baseUrl the base URL of the database, e.g. jdbc:mysql://localhost:3306
      * @param compatibleMode the compatible mode of the database
      */
+    @VisibleForTesting
     public JdbcCatalog(
             ClassLoader userClassLoader,
             String catalogName,

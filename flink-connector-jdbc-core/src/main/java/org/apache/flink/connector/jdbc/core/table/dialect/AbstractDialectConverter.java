@@ -18,6 +18,7 @@
 
 package org.apache.flink.connector.jdbc.core.table.dialect;
 
+import org.apache.flink.annotation.PublicEvolving;
 import org.apache.flink.connector.jdbc.statement.FieldNamedPreparedStatement;
 import org.apache.flink.connector.jdbc.utils.JdbcTypeUtil;
 import org.apache.flink.table.data.DecimalData;
@@ -47,6 +48,7 @@ import java.time.LocalTime;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /** Base class for all converters that convert between JDBC object and Flink internal object. */
+@PublicEvolving
 public abstract class AbstractDialectConverter implements JdbcDialectConverter {
 
     protected final RowType rowType;

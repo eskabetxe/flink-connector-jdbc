@@ -18,6 +18,7 @@
 
 package org.apache.flink.connector.jdbc.core.table.catalog.factory;
 
+import org.apache.flink.annotation.Internal;
 import org.apache.flink.configuration.ConfigOption;
 import org.apache.flink.connector.jdbc.core.table.JdbcFactoryLoader;
 import org.apache.flink.connector.jdbc.core.table.catalog.JdbcCatalog;
@@ -39,6 +40,7 @@ import static org.apache.flink.connector.jdbc.core.table.catalog.factory.JdbcCat
 import static org.apache.flink.table.factories.FactoryUtil.PROPERTY_VERSION;
 
 /** Factory for {@link JdbcCatalog}. */
+@Internal
 public class JdbcCatalogFactory implements CatalogFactory {
 
     private static final Logger LOG = LoggerFactory.getLogger(JdbcCatalogFactory.class);
