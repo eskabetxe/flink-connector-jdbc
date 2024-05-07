@@ -26,7 +26,7 @@ import org.apache.flink.connector.jdbc.core.table.JdbcFactory;
  * and stateless.
  *
  * @see JdbcFactory
- * @deprecated use org.apache.flink.connector.jdbc.core.table.dialect.JdbcDialect
+ * @deprecated use {@link org.apache.flink.connector.jdbc.core.table.dialect.JdbcDialect}
  */
 @Deprecated
 @PublicEvolving

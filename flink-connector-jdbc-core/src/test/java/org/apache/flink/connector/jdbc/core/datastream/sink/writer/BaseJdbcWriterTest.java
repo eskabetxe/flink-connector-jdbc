@@ -1,4 +1,4 @@
-package org.apache.flink.connector.jdbc.sink.writer;
+package org.apache.flink.connector.jdbc.core.datastream.sink.writer;
 
 import org.apache.flink.api.common.JobID;
 import org.apache.flink.api.connector.sink2.Sink;
@@ -6,12 +6,12 @@ import org.apache.flink.api.connector.sink2.SinkWriter;
 import org.apache.flink.connector.base.DeliveryGuarantee;
 import org.apache.flink.connector.jdbc.JdbcExactlyOnceOptions;
 import org.apache.flink.connector.jdbc.JdbcExecutionOptions;
+import org.apache.flink.connector.jdbc.core.datastream.sink.committer.JdbcCommitable;
 import org.apache.flink.connector.jdbc.databases.derby.DerbyTestBase;
 import org.apache.flink.connector.jdbc.datasource.connections.JdbcConnectionProvider;
 import org.apache.flink.connector.jdbc.datasource.statements.JdbcQueryStatement;
 import org.apache.flink.connector.jdbc.datasource.statements.SimpleJdbcQueryStatement;
 import org.apache.flink.connector.jdbc.internal.JdbcOutputSerializer;
-import org.apache.flink.connector.jdbc.sink.committer.JdbcCommitable;
 import org.apache.flink.connector.jdbc.testutils.TableManaged;
 import org.apache.flink.connector.jdbc.testutils.tables.templates.BooksTable;
 import org.apache.flink.util.StringUtils;

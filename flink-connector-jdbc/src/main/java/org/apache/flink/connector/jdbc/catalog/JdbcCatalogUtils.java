@@ -34,8 +34,9 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 
 /**
  * Utils for {@link JdbcCatalog}.
+ *
  * @deprecated
- **/
+ */
 @Deprecated
 public class JdbcCatalogUtils {
     /**
@@ -81,14 +82,29 @@ public class JdbcCatalogUtils {
 
         org.apache.flink.connector.jdbc.core.table.catalog.AbstractJdbcCatalog catalog;
         if (dialect instanceof PostgresDialect) {
-            catalog = new PostgresCatalog(
-                    userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
+            catalog =
+                    new PostgresCatalog(
+                            userClassLoader,
+                            catalogName,
+                            defaultDatabase,
+                            baseUrl,
+                            connectionProperties);
         } else if (dialect instanceof CrateDBDialect) {
-            catalog = new CrateDBCatalog(
-                    userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
+            catalog =
+                    new CrateDBCatalog(
+                            userClassLoader,
+                            catalogName,
+                            defaultDatabase,
+                            baseUrl,
+                            connectionProperties);
         } else if (dialect instanceof MySqlDialect) {
-            catalog = new MySqlCatalog(
-                    userClassLoader, catalogName, defaultDatabase, baseUrl, connectionProperties);
+            catalog =
+                    new MySqlCatalog(
+                            userClassLoader,
+                            catalogName,
+                            defaultDatabase,
+                            baseUrl,
+                            connectionProperties);
         } else {
             throw new UnsupportedOperationException(
                     String.format("Catalog for '%s' is not supported yet.", dialect));

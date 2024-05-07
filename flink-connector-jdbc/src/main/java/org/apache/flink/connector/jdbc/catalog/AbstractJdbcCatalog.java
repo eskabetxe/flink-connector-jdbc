@@ -18,10 +18,12 @@
 
 package org.apache.flink.connector.jdbc.catalog;
 
+import java.util.Properties;
+
 /**
  * Abstract catalog for any JDBC catalogs.
  *
- * @deprecated use org.apache.flink.connector.jdbc.core.table.catalog.AbstractJdbcCatalog
+ * @deprecated use {@link org.apache.flink.connector.jdbc.core.table.catalog.AbstractJdbcCatalog}
  */
 @Deprecated
 public abstract class AbstractJdbcCatalog
@@ -31,9 +33,8 @@ public abstract class AbstractJdbcCatalog
             ClassLoader userClassLoader,
             String catalogName,
             String defaultDatabase,
-            String username,
-            String pwd,
-            String baseUrl) {
-        super(userClassLoader, catalogName, defaultDatabase, username, pwd, baseUrl);
+            String baseUrl,
+            Properties connectProperties) {
+        super(userClassLoader, catalogName, defaultDatabase, baseUrl, connectProperties);
     }
 }

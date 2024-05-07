@@ -1,13 +1,14 @@
-package org.apache.flink.connector.jdbc.sink.writer;
+package org.apache.flink.connector.jdbc.core.datastream.sink.writer;
 
 import org.apache.flink.connector.base.DeliveryGuarantee;
 import org.apache.flink.connector.jdbc.JdbcExactlyOnceOptions;
 import org.apache.flink.connector.jdbc.JdbcExecutionOptions;
+import org.apache.flink.connector.jdbc.core.datastream.sink.committer.JdbcCommitable;
 import org.apache.flink.connector.jdbc.datasource.connections.JdbcConnectionProvider;
 import org.apache.flink.connector.jdbc.datasource.connections.SimpleJdbcConnectionProvider;
-import org.apache.flink.connector.jdbc.sink.committer.JdbcCommitable;
 import org.apache.flink.connector.jdbc.testutils.tables.templates.BooksTable;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
@@ -44,7 +45,7 @@ class AlLeastOnceJdbcWriterTest extends BaseJdbcWriterTest {
         assertThat(commitables.size()).isEqualTo(0);
 
         List<JdbcWriterState> snapshot = sinkWriter.snapshotState(1L);
-        assertThat(snapshot).hasSize(0);
+        Assertions.assertThat(snapshot).hasSize(0);
     }
 
     @Test
