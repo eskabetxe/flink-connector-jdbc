@@ -15,11 +15,9 @@
  * limitations under the License.
  */
 
-package org.apache.flink.connector.jdbc.postgres.testutils;
+package org.apache.flink.connector.jdbc.cratedb.testutils;
 
 /** Postgres docker images. */
-public interface PostgresImages {
-    String POSTGRES_9 = "postgres:9.6.24";
-    String POSTGRES_15 = "postgres:15.1";
-    String POSTGRES_16 = "postgres:16.3";
+public interface CrateDBImages {
+    String CRATEDB_5 = "crate:5.7.1";
 }

@@ -1,5 +1,5 @@
 #
-#Tue May 28 16:21:17 CEST 2024
+#Fri May 31 15:26:52 CEST 2024
 Return\ and\ argument\ types\ of\ methods\ annotated\ with\ @Public\ must\ be\ annotated\ with\ @Public.=596bd7eb-1ed5-4963-a56a-941766d61233
 Connector\ production\ code\ must\ not\ depend\ on\ non-public\ API\ outside\ of\ connector\ packages=f242ee43-a122-4d2f-a291-6439cdb9029f
 ITCASE\ tests\ should\ use\ a\ MiniCluster\ resource\ or\ extension=6b9ab1b0-c14d-4667-bab5-407b81fba98b

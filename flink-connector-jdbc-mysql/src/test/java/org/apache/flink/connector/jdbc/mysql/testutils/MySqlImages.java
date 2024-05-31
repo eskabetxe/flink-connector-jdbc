@@ -20,6 +20,7 @@ package org.apache.flink.connector.jdbc.mysql.testutils;
 /** MySql docker images. */
 public interface MySqlImages {
     String MYSQL_5_6 = "mysql:5.6.51";
-    String MYSQL_5_7 = "mysql:5.7.41";
-    String MYSQL_8_0 = "mysql:8.0.32";
+    String MYSQL_5_7 = "mysql:5.7.44";
+    String MYSQL_8_0 = "mysql:8.0.37";
+    String MYSQL_8_4 = "mysql:8.4.0";
 }
