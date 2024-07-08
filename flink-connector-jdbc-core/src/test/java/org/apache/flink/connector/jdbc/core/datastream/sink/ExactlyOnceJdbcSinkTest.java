@@ -15,21 +15,19 @@
  * limitations under the License.
  */
 
-package org.apache.flink.connector.jdbc.sink;
+package org.apache.flink.connector.jdbc.core.datastream.sink;
 
-import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
+import org.apache.flink.connector.jdbc.JdbcExactlyOnceOptions;
+import org.apache.flink.connector.jdbc.JdbcExecutionOptions;
 
 /** Smoke tests for the {@link JdbcSink} and the underlying classes. */
-public class AtLeastOnceJdbcSinkTest extends BaseJdbcSinkTest {
+public class ExactlyOnceJdbcSinkTest extends BaseJdbcSinkTest {
 
     @Override
     protected <T> JdbcSink<T> finishSink(JdbcSinkBuilder<T> builder) {
-        return builder.buildAtLeastOnce(
-                new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
-                        .withUrl(getMetadata().getJdbcUrl())
-                        .withUsername(getMetadata().getUsername())
-                        .withPassword(getMetadata().getPassword())
-                        .withDriverName(getMetadata().getDriverClass())
-                        .build());
+        return builder.withExecutionOptions(
+                        JdbcExecutionOptions.builder().withMaxRetries(0).build())
+                .buildExactlyOnce(
+                        JdbcExactlyOnceOptions.defaults(), getMetadata().getXaSourceSupplier());
     }
 }
