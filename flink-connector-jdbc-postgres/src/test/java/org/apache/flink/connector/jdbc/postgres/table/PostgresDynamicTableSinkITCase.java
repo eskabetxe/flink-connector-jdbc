@@ -24,4 +24,16 @@ import org.apache.flink.connector.jdbc.postgres.database.dialect.PostgresDialect
 
 /** The Table Sink ITCase for {@link PostgresDialect}. */
 public class PostgresDynamicTableSinkITCase extends JdbcDynamicTableSinkITCase
-        implements PostgresTestBase {}
+        implements PostgresTestBase {
+
+    //    @Test
+    //    void testReal1(DatabaseResource resource) throws Exception {
+    //
+    //        assertThat(true).isTrue();
+    //    }
+    //
+    //    @Test
+    //    void testReal2(DatabaseResource resource) throws Exception {
+    //        assertThat(true).isTrue();
+    //    }
+}
